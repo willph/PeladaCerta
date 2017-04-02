@@ -12,16 +12,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-    private Context c = this;
+
+    private TextView txtEmail;
+    private TextView txtSenha;
+    private Button btnEntrar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final TextView txtEmail = (TextView) findViewById(R.id.editTextEmail);
-        final TextView txtSenha = (TextView) findViewById(R.id.editTextSenha);
-        Button btnEntrar = (Button) findViewById(R.id.buttonLogin);
+        txtEmail = (TextView) findViewById(R.id.editTextEmail);
+        txtSenha = (TextView) findViewById(R.id.editTextSenha);
+        btnEntrar = (Button) findViewById(R.id.buttonLogin);
 
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
@@ -29,9 +33,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(c, LogadoActivity.class);
-                if (txtEmail.getText().toString().equals("admin") == true &&
-                        txtSenha.getText().toString().equals("admin") == true){
+                Intent intent = new Intent(LoginActivity.this, LogadoActivity.class);
+                if (txtEmail.getText().equals("admin") == true &&
+                        txtSenha.getText().equals("admin") == true){
 
                     Toast.makeText(getApplicationContext(), "Redirecionando...", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
@@ -50,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                             });
                     alertDialog.show();*/
                    //Apenas mostra uma mensagem que some sozinho.
-                    Toast.makeText(getApplicationContext(), "Erro.\nLogin ou senha invalido...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Erro.\nLogin ou senha invalido...", Toast.LENGTH_SHORT).show();
 
                 }
 
