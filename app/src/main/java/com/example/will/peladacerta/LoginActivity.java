@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(LoginActivity.this, LogadoActivity.class);
-                if (txtEmail.getText().equals("admin") == true &&
-                        txtSenha.getText().equals("admin") == true){
+                if (txtEmail.getText().toString().equals("admin") == true &&
+                        txtSenha.getText().toString().equals("admin") == true){
 
                     Toast.makeText(getApplicationContext(), "Redirecionando...", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
