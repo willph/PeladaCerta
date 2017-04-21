@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal
-" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
@@ -23,9 +22,9 @@
         android:text="Título"
         android:textSize="30dp"
         android:layout_marginLeft="212dp"
-        android:layout_marginStart="18dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/peladaActivity_imageView_fotoPelada" />
+        android:layout_alignBottom="@+id/peladaActivity_imageView_fotoPelada"
+        android:layout_toEndOf="@+id/peladaActivity_imageView_fotoPelada"
+        android:layout_marginStart="19dp" />
 
     <TextView
         android:id="@+id/peladaActivity_textView_vagasDisponiveis"
@@ -34,10 +33,10 @@
         android:text="lalala"
         android:textSize="30dp"
         android:layout_marginLeft="212dp"
-        android:layout_marginStart="22dp"
-        android:layout_below="@+id/peladaActivity_imageView_fotoPelada"
-        android:layout_alignParentStart="true" />
-    
+        android:layout_below="@+id/peladaActivity_textView_tituloDaPelada"
+        android:layout_toEndOf="@+id/peladaActivity_imageView_fotoPelada"
+        android:layout_marginTop="27dp" />
+
 
 
 

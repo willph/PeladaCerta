@@ -18,6 +18,6 @@ public class ListaViewHolder extends RecyclerView.ViewHolder{
     public ListaViewHolder(View itemView) {
         super(itemView);
 
-        textView_titulo = (TextView) itemView.findViewById()
+        textView_titulo = (TextView) itemView.findViewById(R.id.peladaActivity_textView_tituloDaPelada);
     }
 }
