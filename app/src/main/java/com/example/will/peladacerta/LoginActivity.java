@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(LoginActivity.this, LogadoActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
                 if (txtEmail.getText().toString().equals("admin@gmail.com") == true &&
                         txtSenha.getText().toString().equals("admin") == true){
 

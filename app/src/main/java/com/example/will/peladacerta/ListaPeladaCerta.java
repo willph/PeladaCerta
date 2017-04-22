@@ -36,7 +36,6 @@ public class ListaPeladaCerta extends AppCompatActivity {
         peladaAdapter = new PeladaAdapter(peladaList);
         recyclerView.setAdapter(peladaAdapter);
 
-        // Configurando um dividr entre linhas, para uma melhor visualização.
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
 

@@ -13,7 +13,7 @@ public class ListaViewHolder extends RecyclerView.ViewHolder{
     TextView textView_titulo;
     TextView textView_endereco;
     TextView textView_vagasDisponiveis;
-    TextView textView_vagasOcupadas;
+
 
     public ListaViewHolder(View itemView) {
         super(itemView);
