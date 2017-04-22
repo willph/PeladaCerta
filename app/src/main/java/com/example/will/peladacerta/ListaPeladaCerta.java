@@ -27,11 +27,11 @@ public class ListaPeladaCerta extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         peladaList = new ArrayList<>();
-        peladaList.add(new Pelada(1,"Pelada do Fragoso", "Muribeca", "","","", "", "",2,1));
-        peladaList.add(new Pelada(2,"Pelada do Jonh", "Recife", "","","", "", "",2,1));
-        peladaList.add(new Pelada(3,"Pelada do Carlos", "Suvado da Cobra", "","","", "", "",2,1));
-        peladaList.add(new Pelada(4,"Pelada do Cadena", "EntraPusso", "","","", "", "",2,1));
-        peladaList.add(new Pelada(5,"Pelada do Adriel", "Barro", "","","", "", "",2,1));
+        peladaList.add(new Pelada(1,"Pelada do Fragoso", "", "","","Muribeca", "", "",2,1));
+        peladaList.add(new Pelada(2,"Pelada do Jonh", "", "","","Recife", "", "",2,1));
+        peladaList.add(new Pelada(3,"Pelada do Carlos", "", "","","Suvado da Cobra", "", "",2,1));
+        peladaList.add(new Pelada(4,"Pelada do Cadena", "", "","","EntraPusso", "", "",2,1));
+        peladaList.add(new Pelada(5,"Pelada do Adriel", "", "","","Gameleira", "", "",2,1));
 
         peladaAdapter = new PeladaAdapter(peladaList);
         recyclerView.setAdapter(peladaAdapter);

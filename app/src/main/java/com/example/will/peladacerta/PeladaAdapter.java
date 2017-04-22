@@ -29,7 +29,7 @@ public class PeladaAdapter extends RecyclerView.Adapter<ListaViewHolder>{
     public void onBindViewHolder(ListaViewHolder holder, int position) {
         holder.textView_titulo.setText(peladaList.get(position).getTitulo());
         holder.textView_endereco.setText(peladaList.get(position).getBairro());
-        holder.textView_vagasDisponiveis.setText(peladaList.get(position).getVagasDisponiveis());
+        holder.textView_vagasDisponiveis.setText(Integer.toString(peladaList.get(position).getVagasDisponiveis()));
 
     }
 
