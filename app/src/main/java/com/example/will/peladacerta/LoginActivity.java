@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
-                if (txtEmail.getText().toString().equals("admin@gmail.com") == true &&
+                if (txtEmail.getText().toString().equals("admin") == true &&
                         txtSenha.getText().toString().equals("admin") == true){
 
                     Toast.makeText(getApplicationContext(), "Redirecionando...", Toast.LENGTH_SHORT).show();

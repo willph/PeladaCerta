@@ -1,5 +1,7 @@
 package com.example.will.peladacerta;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -30,6 +32,8 @@ public class PeladaAdapter extends RecyclerView.Adapter<ListaViewHolder>{
         holder.textView_titulo.setText(peladaList.get(position).getTitulo());
         holder.textView_endereco.setText(peladaList.get(position).getBairro());
         holder.textView_vagasDisponiveis.setText(Integer.toString(peladaList.get(position).getVagasDisponiveis()));
+        Bitmap bitmap = BitmapFactory.decodeStream(peladaList.get(position).getImagem());
+        holder.imageView_imagemPelada.setImageBitmap(bitmap);
 
     }
 

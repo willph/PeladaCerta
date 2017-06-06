@@ -1,5 +1,7 @@
 package com.example.will.peladacerta;
 
+import java.io.InputStream;
+
 /**
  * Created by aluno on 12/04/2017.
  */
@@ -13,10 +15,11 @@ public class Pelada {
     String bairro;
     String cep;
     String complemento;
+    private InputStream imagem;
     int vagasDisponiveis;
     int vagasOcupadas;
 
-    public Pelada(int id, String titulo, String descricao, String rua, String numero, String bairro, String cep, String complemento, int vagaDisponiveis, int vagaOcupadas) {
+    public Pelada(int id, String titulo, String descricao, String rua, String numero, String bairro, String cep, String complemento, int vagaDisponiveis, int vagaOcupadas, InputStream imagem) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -27,6 +30,7 @@ public class Pelada {
         this.complemento = complemento;
         this.vagasDisponiveis = vagaDisponiveis;
         this.vagasOcupadas = vagaOcupadas;
+        this.imagem = imagem;
     }
 
     public int getId() {
@@ -107,5 +111,14 @@ public class Pelada {
 
     public void setVagasOcupadas(int vagaOcupadas) {
         this.vagasOcupadas = vagaOcupadas;
+    }
+
+
+    public InputStream getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(InputStream imagem) {
+        this.imagem = imagem;
     }
 }
