@@ -10,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.loopj.android.http.PersistentCookieStore;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -84,5 +86,11 @@ public class ListaPeladaCerta extends AppCompatActivity {
 
             }
         }).start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+//        (new PersistentCookieStore(this)).clear(); // limpa os cookies
     }
 }
