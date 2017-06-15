@@ -31,7 +31,7 @@ public class Network {
     private String message;
     private ProgressDialog mDialog;
     private String QUERY_LOGIN = "https://pelada-certa.herokuapp.com/users/sign_in.json";
-
+    private String QUERY_LISTAR_PELADAS = "https://pelada-certa.herokuapp.com/peladas.json";
 
     public Network(Context context, String message) {
         this.context = context;
@@ -135,4 +135,91 @@ public class Network {
             }
         });
     }
+
+    public void listarPeladas() {
+
+
+        mDialog = new ProgressDialog(context);
+        mDialog.setMessage(message);
+        mDialog.show();
+
+
+        if (myCookieStore == null) {
+            myCookieStore = new PersistentCookieStore(context);
+        }
+        client.setCookieStore(myCookieStore);
+        client.setTimeout(5000);
+        client.get(QUERY_LISTAR_PELADAS, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(JSONArray response) {
+                fetchListener.onComplete(response);
+                mDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
+                mDialog.dismiss();
+                (new PersistentCookieStore(context)).clear(); // limpa os cookies
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                try {
+                    if (throwable == null || throwable.getMessage() == null) {
+                        alert.setTitle("Falha na conexão, tente novamente.");
+                    } else if (throwable != null) {
+                        if (throwable.getMessage().contains("Unable to resolve host")) {//
+                            alert.setTitle("Sem internet!");
+                        } else {
+                            alert.setTitle("Erro ao autenticar Fiscal!");
+                        }
+                    }
+                } catch (NullPointerException e) {
+                }
+
+                if (error != null){
+                    try {
+                        alert.setTitle("Erro!");
+                        alert.setMessage(error.getString("error"));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+                alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show();
+                fetchListener.onError(throwable);
+            }
+
+            @Override
+            public void onFailure(Throwable e, JSONObject errorResponse) {
+                mDialog.dismiss();
+                (new PersistentCookieStore(context)).clear();
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                if (e == null || e.getMessage() == null) {
+                    alert.setTitle("Falha na conexão, tente novamente.");
+                } else if (e.getMessage().contains("Unable to resolve host")) {
+                    alert.setTitle("Sem internet!");
+                } else {
+                    alert.setTitle("Erro ao autenticar Fiscal!");
+                }
+
+                alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+                fetchListener.onError(e);
+            }
+        });
+    }
+
+
 }

@@ -10,13 +10,46 @@ public class PeladaModel {
 
     private int id;
     private String title;
-    private Date begin;
+    private String begin;
     private String host_team;
     private String guest_team;
     private String address_full;
     private double lat;
     private double lng;
+    private String imgUrl;
 
+
+    public PeladaModel(int id, String title, String begin, String address_full, double lat, double lng, String imgUrl) {
+        this.id = id;
+        this.title = title;
+        this.begin = begin;
+        this.address_full = address_full;
+        this.lat = lat;
+        this.lng = lng;
+        this.imgUrl = imgUrl;
+    }
+
+
+
+    public PeladaModel(int id, String title, String begin, String host_team, String guest_team, String address_full, double lat, double lng, String imgUrl) {
+        this.id = id;
+        this.title = title;
+        this.begin = begin;
+        this.host_team = host_team;
+        this.guest_team = guest_team;
+        this.address_full = address_full;
+        this.lat = lat;
+        this.lng = lng;
+        this.imgUrl = imgUrl;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public String getTitle() {
         return title;
@@ -26,11 +59,11 @@ public class PeladaModel {
         this.title = title;
     }
 
-    public Date getBegin() {
+    public String getBegin() {
         return begin;
     }
 
-    public void setBegin(Date begin) {
+    public void setBegin(String begin) {
         this.begin = begin;
     }
 

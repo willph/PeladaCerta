@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAFFliau_nR7jxv7TFvYtTia4SQ8znH1k0"/>
         <activity android:name=".LoginActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +23,7 @@
         </activity>
         <activity android:name=".LogadoActivity" />
         <activity android:name=".ListaPeladaCerta"></activity>
+
     </application>
 
 </manifest>
