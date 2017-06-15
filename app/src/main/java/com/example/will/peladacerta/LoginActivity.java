@@ -44,7 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         for (Cookie c : cookies) {
             Log.i("lala", c.getName());
             if (c.getName().equals("_pelada_certa-api_session")) {
-                Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
+//                Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
+                Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -61,7 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                 network.setListener(new IASyncFetchListener() {
                     @Override
                     public void onComplete(JSONObject item) {
-                        Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
+//                        Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
+                        Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
                         startActivity(intent);
                         finish();
                     }

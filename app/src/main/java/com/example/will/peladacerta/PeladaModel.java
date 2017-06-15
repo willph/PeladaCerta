@@ -1,12 +1,13 @@
 package com.example.will.peladacerta;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by rafaeljcadena on 14/06/17.
  */
 
-public class PeladaModel {
+public class PeladaModel implements Serializable {
 
     private int id;
     private String title;
