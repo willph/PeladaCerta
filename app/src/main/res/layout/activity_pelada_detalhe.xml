@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,5 +7,147 @@
     tools:context="com.example.will.peladacerta.PeladaDetalheActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="13dp"
+        app:srcCompat="@drawable/common_plus_signin_btn_icon_dark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/pelada_detalhes_textView_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginStart="67dp"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text="Título"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pelada_detalhes_textView_titulo"
+        android:layout_marginTop="18dp"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text="Endereço:"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/pelada_detalhes_textView_endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text=""
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pelada_detalhes_txtView_horario"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text="Data e Hora:" />
+
+    <TextView
+        android:id="@+id/pelada_detalhes_txtView_horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text=""
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_time_1"
+                android:layout_width="275dp"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:text="Time 1"
+                android:textSize="20sp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton_time_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:backgroundTint="@android:color/transparent"
+                app:fabSize="mini"
+                app:srcCompat="@mipmap/ball_icon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_toEndOf="@+id/textView_time_1" />
+
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/spinner_time_1"
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignStart="@+id/imageView2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_time_2"
+                android:layout_width="275dp"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:text="Time 2"
+                android:textSize="20sp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton_time_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:backgroundTint="@android:color/transparent"
+                app:fabSize="mini"
+                app:srcCompat="@mipmap/ball_icon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_toEndOf="@+id/textView_time_2" />
+
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/spinner_time_2"
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+    </LinearLayout>
+</RelativeLayout>

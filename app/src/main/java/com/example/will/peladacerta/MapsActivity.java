@@ -141,7 +141,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Intent intent = new Intent(MapsActivity.this, PeladaDetalheActivity.class);
-                intent.putExtra("lista", listaPeladas.get(Integer.valueOf(marker.getSnippet())));
+                intent.putExtra("peladaModel", listaPeladas.get(Integer.valueOf(marker.getSnippet())));
                 startActivity(intent);
                 return true;
             }
