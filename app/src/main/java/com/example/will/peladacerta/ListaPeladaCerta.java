@@ -50,13 +50,13 @@ public class ListaPeladaCerta extends AppCompatActivity {
             public void run() {
                 try {
                     //transformando url em objeto
-                    URL url = new URL("https://amocaes.files.wordpress.com/2011/10/cachorro-fofo-ff23a.jpg");
+                    URL url = new URL("http://cyberdados.com/wp-content/images/2014/07/2iitkhx.jpg");
                     //abrindo a conexão
                     HttpURLConnection http = (HttpURLConnection) url.openConnection();
                     //pegando a imagem em byte code
                     final InputStream inputStream = http.getInputStream();
                     //transformando em bitmap
-                    //final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
