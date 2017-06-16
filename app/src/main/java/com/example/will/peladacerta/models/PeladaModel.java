@@ -1,4 +1,4 @@
-package com.example.will.peladacerta;
+package com.example.will.peladacerta.models;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,19 +12,19 @@ public class PeladaModel implements Serializable {
     private int id;
     private String title;
     private String begin;
-    private String host_team;
-    private String guest_team;
-    private String address_full;
+    private SoccerTeam hostTeam;
+    private SoccerTeam guestTeam;
+    private String addressFull;
     private double lat;
     private double lng;
     private String imgUrl;
 
 
-    public PeladaModel(int id, String title, String begin, String address_full, double lat, double lng, String imgUrl) {
+    public PeladaModel(int id, String title, String begin, String addressFull, double lat, double lng, String imgUrl) {
         this.id = id;
         this.title = title;
         this.begin = begin;
-        this.address_full = address_full;
+        this.addressFull = addressFull;
         this.lat = lat;
         this.lng = lng;
         this.imgUrl = imgUrl;
@@ -32,13 +32,13 @@ public class PeladaModel implements Serializable {
 
 
 
-    public PeladaModel(int id, String title, String begin, String host_team, String guest_team, String address_full, double lat, double lng, String imgUrl) {
+    public PeladaModel(int id, String title, String begin, SoccerTeam hostTeam, SoccerTeam guestTeam, String addressFull, double lat, double lng, String imgUrl) {
         this.id = id;
         this.title = title;
         this.begin = begin;
-        this.host_team = host_team;
-        this.guest_team = guest_team;
-        this.address_full = address_full;
+        this.hostTeam = hostTeam;
+        this.guestTeam = guestTeam;
+        this.addressFull = addressFull;
         this.lat = lat;
         this.lng = lng;
         this.imgUrl = imgUrl;
@@ -68,28 +68,28 @@ public class PeladaModel implements Serializable {
         this.begin = begin;
     }
 
-    public String getHost_team() {
-        return host_team;
+    public SoccerTeam getHostTeam() {
+        return hostTeam;
     }
 
-    public void setHost_team(String host_team) {
-        this.host_team = host_team;
+    public void setHostTeam(SoccerTeam hostTeam) {
+        this.hostTeam = hostTeam;
     }
 
-    public String getGuest_team() {
-        return guest_team;
+    public SoccerTeam getGuestTeam() {
+        return guestTeam;
     }
 
-    public void setGuest_team(String guest_team) {
-        this.guest_team = guest_team;
+    public void setGuestTeam(SoccerTeam guestTeam) {
+        this.guestTeam = guestTeam;
     }
 
-    public String getAddress_full() {
-        return address_full;
+    public String getAddressFull() {
+        return addressFull;
     }
 
-    public void setAddress_full(String address_full) {
-        this.address_full = address_full;
+    public void setAddressFull(String addressFull) {
+        this.addressFull = addressFull;
     }
 
     public double getLat() {

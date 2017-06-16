@@ -1,13 +1,12 @@
 package com.example.will.peladacerta;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.will.peladacerta.models.PeladaModel;
 
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class PeladaAdapter extends RecyclerView.Adapter<ListaViewHolder>{
 
 
         holder.textView_titulo.setText(peladaList.get(position).getTitle());
-        holder.textView_endereco.setText(peladaList.get(position).getAddress_full());
+        holder.textView_endereco.setText(peladaList.get(position).getAddressFull());
 //        holder.textView_vagasDisponiveis.setText(Integer.toString(peladaList.get(position).getVagasDisponiveis()));
 //        Bitmap bitmap = BitmapFactory.decodeStream(peladaList.get(position).getImagem());
         Glide.with(context).load(peladaList.get(position).getImgUrl()).into(holder.imageView_imagemPelada);

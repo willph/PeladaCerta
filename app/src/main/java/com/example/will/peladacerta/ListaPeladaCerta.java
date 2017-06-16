@@ -10,9 +10,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.will.peladacerta.models.PeladaModel;
 import com.example.will.peladacerta.util.IASyncFetchListener;
 import com.example.will.peladacerta.util.Network;
-import com.loopj.android.http.PersistentCookieStore;
 
 import org.json.JSONArray;
 import org.json.JSONException;

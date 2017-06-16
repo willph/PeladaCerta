@@ -7,6 +7,9 @@ import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.example.will.peladacerta.models.PeladaModel;
+import com.example.will.peladacerta.models.SoccerTeam;
+import com.example.will.peladacerta.models.User;
 import com.example.will.peladacerta.util.GPSTracker;
 import com.example.will.peladacerta.util.IASyncFetchListener;
 import com.example.will.peladacerta.util.Network;
@@ -92,12 +95,77 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onComplete(JSONArray jsonArray) {
                 listaPeladas = new ArrayList<>();
+                SoccerTeam hostTeam = new SoccerTeam();
+                SoccerTeam guestTeam = new SoccerTeam();
+                JSONObject hostJSON;
+                JSONObject guestJSON;
+                JSONArray jsonArrayUsers;
+                List<User> listaUsersHost = new ArrayList<>();
+                List<User> listaUsersGuest = new ArrayList<>();
+                User user;
+
+
+
+
                 for(int i = 0; i < jsonArray.length(); i++) {
                     try {
+
                         JSONObject item = jsonArray.getJSONObject(i);
-                        listaPeladas.add(new PeladaModel(item.getInt("id"), item.getString("title"),
+                        PeladaModel peladaModel = new PeladaModel(item.getInt("id"), item.getString("title"),
                                 item.getString("begin"), item.getString("address_full"),
-                                item.getDouble("lat"), item.getDouble("lng"), "http://cyberdados.com/wp-content/images/2014/07/2iitkhx.jpg"));
+                                item.getDouble("lat"), item.getDouble("lng"), "http://cyberdados.com/wp-content/images/2014/07/2iitkhx.jpg");
+
+                        hostJSON = item.getJSONObject("host");
+                        hostTeam.setId(hostJSON.getInt("id"));
+                        hostTeam.setTeamName("team_name");
+                        jsonArrayUsers = hostJSON.getJSONArray("users");
+
+                        for (int j = 0; j < jsonArrayUsers.length(); j++){
+                            JSONObject userJson = jsonArrayUsers.getJSONObject(j);
+                            user = new User();
+                            user.setId(userJson.getInt("id"));
+                            user.setNome(userJson.getString("nome"));
+                            user.setPosition(userJson.getString("position"));
+                            user.setBirthdate(userJson.getString("birthdate"));
+                            user.setCpf(userJson.getString("cpf"));
+                            user.setActive(userJson.getString("active"));
+                            user.setCell_phone(userJson.getString("cell_phone"));
+                            user.setHome_phone(userJson.getString("home_phone"));
+                            user.setDescricao(userJson.getString("descricao"));
+
+                            listaUsersHost.add(user);
+                        }
+
+                        guestJSON = item.getJSONObject("guest");
+                        guestTeam.setId(hostJSON.getInt("id"));
+                        guestTeam.setTeamName("team_name");
+                        jsonArrayUsers = guestJSON.getJSONArray("users");
+
+                        for (int k = 0; k < jsonArrayUsers.length(); k++){
+                            JSONObject userJson = jsonArrayUsers.getJSONObject(k);
+                            user = new User();
+                            user.setId(userJson.getInt("id"));
+                            user.setNome(userJson.getString("nome"));
+                            user.setPosition(userJson.getString("position"));
+                            user.setBirthdate(userJson.getString("birthdate"));
+                            user.setCpf(userJson.getString("cpf"));
+                            user.setActive(userJson.getString("active"));
+                            user.setCell_phone(userJson.getString("cell_phone"));
+                            user.setHome_phone(userJson.getString("home_phone"));
+                            user.setDescricao(userJson.getString("descricao"));
+
+                            listaUsersGuest.add(user);
+                        }
+
+
+
+                        hostTeam.setListaJogadores(listaUsersHost);
+                        guestTeam.setListaJogadores(listaUsersGuest);
+
+                        peladaModel.setHostTeam(hostTeam);
+                        peladaModel.setGuestTeam(guestTeam);
+
+                        listaPeladas.add(peladaModel);
 
 
                     } catch (JSONException e) {

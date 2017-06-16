@@ -1,24 +1,53 @@
-package com.example.will.peladacerta;
+package com.example.will.peladacerta.models;
+
+import java.io.Serializable;
 
 /**
  * Created by rafaeljcadena on 14/06/17.
  */
 
-public class User {
+public class User implements Serializable {
 
+    private int id;
     private String email;
     private String nome;
+    private String birthdate;
     private String cpf;
+    private String active;
     private String descricao;
     private String position;
     private String cell_phone;
     private String home_phone;
-    private String soccer_team; //team_name
+//    private String soccer_team; //team_name
 
     public User(){
 
     }
 
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -76,11 +105,4 @@ public class User {
         this.home_phone = home_phone;
     }
 
-    public String getSoccer_team() {
-        return soccer_team;
-    }
-
-    public void setSoccer_team(String soccer_team) {
-        this.soccer_team = soccer_team;
-    }
 }
