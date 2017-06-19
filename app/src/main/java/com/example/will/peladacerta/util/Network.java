@@ -166,7 +166,7 @@ public class Network {
             public void onSuccess(JSONObject jsonObject) {
                 mDialog.dismiss();
                 Log.i("JSON", "" + jsonObject.toString());
-//                fetchListener.onComplete(jsonObject);
+                fetchListener.onComplete(jsonObject);
 
 
             }
@@ -321,7 +321,7 @@ public class Network {
         });
     }
 
-    public void atualizarPelada() {
+    public void atualizarPelada(int id) {
 
 
         mDialog = new ProgressDialog(context);
@@ -334,12 +334,19 @@ public class Network {
         }
         client.setCookieStore(myCookieStore);
         client.setTimeout(5000);
-        client.get(PeladasURL.getQueryListarPeladas(), new JsonHttpResponseHandler() {
+        client.get(PeladasURL.getQuerySelectPelada(id), new JsonHttpResponseHandler() {
+
             @Override
-            public void onSuccess(JSONArray response) {
+            public void onSuccess(JSONObject response) {
                 fetchListener.onComplete(response);
                 mDialog.dismiss();
             }
+
+//            @Override
+//            public void onSuccess(JSONArray response) {
+//                fetchListener.onComplete(response);
+//                mDialog.dismiss();
+//            }
 
             @Override
             public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
