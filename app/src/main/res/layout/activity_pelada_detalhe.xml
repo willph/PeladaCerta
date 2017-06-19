@@ -72,7 +72,8 @@
         android:layout_marginRight="10dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_alignLeft="@+id/imageView2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -87,17 +88,16 @@
                 android:text="Time 1"
                 android:textSize="20sp" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton_time_1"
+            <android.support.design.widget.CheckableImageButton
+                android:id="@+id/ImageButton_time_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                app:backgroundTint="@android:color/transparent"
-                app:fabSize="mini"
-                app:srcCompat="@mipmap/ball_icon"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_toEndOf="@+id/textView_time_1" />
+                android:layout_toRightOf="@+id/textView_time_1"
+                android:clickable="true"
+                android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
+                app:fabSize="mini"
+                app:srcCompat="@mipmap/ball_icon" />
 
         </RelativeLayout>
 
@@ -116,7 +116,8 @@
         android:orientation="vertical"
         android:layout_marginTop="44dp"
         android:layout_below="@+id/linearLayout"
-        android:layout_alignStart="@+id/imageView2">
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignLeft="@+id/imageView2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -131,17 +132,16 @@
                 android:text="Time 2"
                 android:textSize="20sp" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton_time_2"
+            <android.support.design.widget.CheckableImageButton
+                android:id="@+id/ImageButton_time_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                app:backgroundTint="@android:color/transparent"
-                app:fabSize="mini"
-                app:srcCompat="@mipmap/ball_icon"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_toEndOf="@+id/textView_time_2" />
+                android:layout_toRightOf="@+id/textView_time_2"
+                android:clickable="true"
+                android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
+                app:fabSize="mini"
+                app:srcCompat="@mipmap/ball_icon" />
 
         </RelativeLayout>
 
