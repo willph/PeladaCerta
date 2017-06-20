@@ -21,21 +21,24 @@
         android:id="@+id/pelada_detalhes_textView_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Pelada Bom Jesus"
+        android:textSize="20sp"
+
         android:layout_alignTop="@+id/imageView2"
-        android:layout_marginStart="67dp"
+
         android:layout_toEndOf="@+id/imageView2"
-        android:text="Título"
-        android:textSize="30sp" />
+        android:layout_toRightOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pelada_detalhes_textView_titulo"
-        android:layout_marginTop="18dp"
-        android:layout_toEndOf="@+id/imageView2"
         android:text="Endereço:"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/pelada_detalhes_textView_titulo"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/pelada_detalhes_textView_endereco"
@@ -43,25 +46,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
         android:layout_toEndOf="@+id/imageView2"
-        android:text=""
-        android:textStyle="bold" />
+        android:text="iuhiuhiuhuihi"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/pelada_detalhes_txtView_horario"
+        android:text="Data e Hora:"
+
+
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toRightOf="@+id/imageView2"
         android:layout_toEndOf="@+id/imageView2"
-        android:text="Data e Hora:" />
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/pelada_detalhes_txtView_horario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="kkkkkkkkkkk"
+        android:textStyle="bold"
         android:layout_alignBottom="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
-        android:text=""
-        android:textStyle="bold" />
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
 
     <LinearLayout
         android:layout_width="match_parent"

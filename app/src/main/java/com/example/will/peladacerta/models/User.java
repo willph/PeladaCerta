@@ -16,12 +16,30 @@ public class User implements Serializable {
     private String active;
     private String descricao;
     private String position;
-    private String cell_phone;
-    private String home_phone;
+    private String cellPhone;
+    private String homePhone;
+    private String password;
+    private String passwordConfirmation;
 //    private String soccer_team; //team_name
 
     public User(){
 
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirmation() {
+        return passwordConfirmation;
+    }
+
+    public void setPasswordConfirmation(String passwordConfirmation) {
+        this.passwordConfirmation = passwordConfirmation;
     }
 
     public String getActive() {
@@ -89,20 +107,26 @@ public class User implements Serializable {
         this.position = position;
     }
 
-    public String getCell_phone() {
-        return cell_phone;
+    public String getCellPhone() {
+        return cellPhone;
     }
 
-    public void setCell_phone(String cell_phone) {
-        this.cell_phone = cell_phone;
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
-    public String getHome_phone() {
-        return home_phone;
+    public String getHomePhone() {
+        return homePhone;
     }
 
-    public void setHome_phone(String home_phone) {
-        this.home_phone = home_phone;
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    public String toServerPosition(){
+        String positionServer = this.position;
+        positionServer = positionServer.toLowerCase();
+        return positionServer.replace(" ", "_");
     }
 
 }

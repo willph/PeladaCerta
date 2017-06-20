@@ -1,19 +1,15 @@
 package com.example.will.peladacerta;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 
@@ -97,6 +93,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
+        } else if (item.getItemId() == R.id.refresh) {
+            getLista();
+//            generatePins(listaPeladas);
+
         }
 
         return true;
@@ -180,8 +180,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             user.setBirthdate(userJson.getString("birthdate"));
                             user.setCpf(userJson.getString("cpf"));
                             user.setActive(userJson.getString("active"));
-                            user.setCell_phone(userJson.getString("cell_phone"));
-                            user.setHome_phone(userJson.getString("home_phone"));
+                            user.setCellPhone(userJson.getString("cell_phone"));
+                            user.setHomePhone(userJson.getString("home_phone"));
                             user.setDescricao(userJson.getString("descricao"));
 
                             listaUsersHost.add(user);
@@ -202,8 +202,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             user.setBirthdate(userJson.getString("birthdate"));
                             user.setCpf(userJson.getString("cpf"));
                             user.setActive(userJson.getString("active"));
-                            user.setCell_phone(userJson.getString("cell_phone"));
-                            user.setHome_phone(userJson.getString("home_phone"));
+                            user.setCellPhone(userJson.getString("cell_phone"));
+                            user.setHomePhone(userJson.getString("home_phone"));
                             user.setDescricao(userJson.getString("descricao"));
 
                             listaUsersGuest.add(user);

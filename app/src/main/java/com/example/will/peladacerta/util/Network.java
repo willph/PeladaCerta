@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -413,4 +414,119 @@ public class Network {
         });
     }
 
+    public void cadastrar(User user) {
+        mDialog = new ProgressDialog(context);
+        mDialog.setMessage(message);
+        mDialog.show();
+
+        RequestParams requestParams = new RequestParams();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("nome", user.getNome());
+        map.put("email", user.getEmail());
+        map.put("password", user.getPassword());
+        map.put("password_confirmation", user.getPasswordConfirmation());
+        map.put("cell_phone", user.getCellPhone());
+        map.put("position", user.toServerPosition());
+
+        requestParams.put("user", map);
+
+
+        if (myCookieStore == null) {
+            myCookieStore = new PersistentCookieStore(context);
+        }
+        client.setCookieStore(myCookieStore);
+        client.setTimeout(5000);
+        client.post(PeladasURL.getQueryCreateUser(), requestParams, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(JSONObject jsonObject) {
+
+                fetchListener.onComplete(jsonObject);
+                mDialog.dismiss();
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
+                mDialog.dismiss();
+                (new PersistentCookieStore(context)).clear(); // limpa os cookies
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                try {
+                    if (throwable == null || throwable.getMessage() == null) {
+                        alert.setTitle("Falha na conexão, tente novamente.");
+                    } else if (throwable != null) {
+                        if (throwable.getMessage().contains("Unable to resolve host")) {//
+                            alert.setTitle("Sem internet!");
+                        } else {
+                            alert.setTitle("Erro ao autenticar Fiscal!");
+                        }
+                    }
+                } catch (NullPointerException e) {
+                }
+
+                if (error != null){
+                    try {
+                        alert.setTitle("Erro!");
+
+                        Iterator<String> iterator = error.keys();
+
+                        StringBuilder sb = new StringBuilder();
+
+                        while (iterator.hasNext()){
+                            String errorKey = iterator.next();
+                            String errorIndex = errorKey;
+
+                            if (errorKey.equals("cell_phone")){
+                                errorIndex = "celular";
+                            }
+
+                            if (errorKey.equals("password_confirmation")){
+                                errorIndex = "Senha de confirmação";
+                            }
+
+                            sb.append(errorIndex + " " + error.getJSONArray(errorKey).get(0) + "\n");
+                        }
+
+                        alert.setMessage(sb.toString());
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+                alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show();
+                fetchListener.onError(throwable);
+            }
+
+            @Override
+            public void onFailure(Throwable e, JSONObject errorResponse) {
+                mDialog.dismiss();
+                (new PersistentCookieStore(context)).clear();
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                if (e == null || e.getMessage() == null) {
+                    alert.setTitle("Falha na conexão, tente novamente.");
+                } else if (e.getMessage().contains("Unable to resolve host")) {
+                    alert.setTitle("Sem internet!");
+                } else {
+                    alert.setTitle("Erro ao autenticar Fiscal!");
+                }
+
+                alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+                fetchListener.onError(e);
+            }
+        });
+    }
 }

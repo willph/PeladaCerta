@@ -69,7 +69,11 @@ public class SpinnerCustomAdapter extends BaseAdapter {
         return adapter;
     }
 
-//    public class MulherPelada {
+    public void setSoccerTeam(SoccerTeam soccerTeam) {
+        this.soccerTeam = soccerTeam;
+    }
+
+    //    public class MulherPelada {
 //
 //        private String item1;
 //        private String item2;

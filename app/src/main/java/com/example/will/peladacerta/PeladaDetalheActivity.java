@@ -180,8 +180,8 @@ public class PeladaDetalheActivity extends AppCompatActivity {
                             user.setBirthdate(userJson.getString("birthdate"));
                             user.setCpf(userJson.getString("cpf"));
                             user.setActive(userJson.getString("active"));
-                            user.setCell_phone(userJson.getString("cell_phone"));
-                            user.setHome_phone(userJson.getString("home_phone"));
+                            user.setCellPhone(userJson.getString("cell_phone"));
+                            user.setHomePhone(userJson.getString("home_phone"));
                             user.setDescricao(userJson.getString("descricao"));
 
                             listaUsersHost.add(user);
@@ -202,8 +202,8 @@ public class PeladaDetalheActivity extends AppCompatActivity {
                             user.setBirthdate(userJson.getString("birthdate"));
                             user.setCpf(userJson.getString("cpf"));
                             user.setActive(userJson.getString("active"));
-                            user.setCell_phone(userJson.getString("cell_phone"));
-                            user.setHome_phone(userJson.getString("home_phone"));
+                            user.setCellPhone(userJson.getString("cell_phone"));
+                            user.setHomePhone(userJson.getString("home_phone"));
                             user.setDescricao(userJson.getString("descricao"));
 
                             listaUsersGuest.add(user);
@@ -219,8 +219,12 @@ public class PeladaDetalheActivity extends AppCompatActivity {
                         spinner_adapter_1 = new SpinnerCustomAdapter(PeladaDetalheActivity.this, peladaModel.getHostTeam());
                         spinner_adapter_2 = new SpinnerCustomAdapter(PeladaDetalheActivity.this, peladaModel.getGuestTeam());
 
-                        spinner_adapter_1.notifyDataSetChanged();
-                        spinner_adapter_2.notifyDataSetChanged();
+//                        spinner_adapter_1.notifyDataSetChanged();
+//                        spinner_adapter_2.notifyDataSetChanged();
+
+                        spinner_time_1.setAdapter(spinner_adapter_1);
+                        spinner_time_2.setAdapter(spinner_adapter_2);
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();

@@ -20,6 +20,12 @@ public class PeladasURL {
 
     private static final String QUERY_SELECT_PELADA = PeladasURL.ADDRESS + "/peladas/%s.json";
 
+    private static final String QUERY_CREATE_USER = PeladasURL.ADDRESS + "/api/sign_in_user.json";
+
+
+    public static String getQueryCreateUser() {
+        return QUERY_CREATE_USER;
+    }
 
     public static String getQuerySelectPelada(int id) {
         return String.format(QUERY_SELECT_PELADA, String.valueOf(id));

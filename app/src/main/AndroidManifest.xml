@@ -29,7 +29,8 @@
         <activity android:name=".LogadoActivity" />
         <activity android:name=".ListaPeladaCerta" />
         <activity android:name=".MapsActivity" />
-        <activity android:name=".PeladaDetalheActivity"></activity>
+        <activity android:name=".PeladaDetalheActivity" />
+        <activity android:name=".SignInActivity"></activity>
     </application>
 
 </manifest>
