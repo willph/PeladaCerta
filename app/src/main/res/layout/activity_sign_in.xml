@@ -72,7 +72,8 @@
         <Spinner
             android:id="@+id/signin_activity_spinner_positions"
             android:layout_width="match_parent"
-            android:layout_height="52dp" />
+            android:layout_height="52dp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -90,15 +91,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"
             android:text="Cadastrar"
             android:textAlignment="center"
             android:layout_centerHorizontal="true"
+            android:layout_marginRight="15dp"
             />
 
         <Button
             android:id="@+id/signin_activity_button_cancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"
             android:layout_weight="1"
             android:text="Cancelar"
             android:layout_centerHorizontal="true"

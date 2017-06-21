@@ -46,8 +46,9 @@ public class SignInActivity extends AppCompatActivity {
         positionSpinner = (Spinner) findViewById(R.id.signin_activity_spinner_positions);
 
         ArrayAdapter<String> listaPosition = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-        listaPosition.addAll("", "Atacante", "Goleiro", "Zagueiro", "Lateral Esquerdo", "Lateral Direito");
+        listaPosition.addAll("Atacante", "Goleiro", "Zagueiro", "Lateral Esquerdo", "Lateral Direito");
         positionSpinner.setAdapter(listaPosition);
+        positionSpinner.setPrompt("Posição");
 
         signin_activity_editText_Nome = (EditText) findViewById(R.id.signin_activity_editText_Nome);
         signin_activity_editText_Email = (EditText) findViewById(R.id.signin_activity_editText_Email);
