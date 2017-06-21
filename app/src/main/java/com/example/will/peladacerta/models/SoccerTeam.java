@@ -48,4 +48,15 @@ public class SoccerTeam implements Serializable {
     public void setListaJogadores(List<User> listaJogadores) {
         this.listaJogadores = listaJogadores;
     }
+
+    public boolean hasUserById(User user) {
+        boolean has = false;
+        for(User item : listaJogadores){
+            if (item.getId() == user.getId()){
+                has = true;
+                return has;
+            }
+        }
+        return has;
+    }
 }

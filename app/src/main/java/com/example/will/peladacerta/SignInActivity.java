@@ -125,7 +125,7 @@ public class SignInActivity extends AppCompatActivity {
                     editor.commit();
 
                     Intent intent = new Intent(SignInActivity.this, MapsActivity.class);
-                    intent.putExtra("loggerUser", user);
+                    intent.putExtra("loggedUser", user);
                     startActivity(intent);
                     finish();
                 } catch (JSONException e) {

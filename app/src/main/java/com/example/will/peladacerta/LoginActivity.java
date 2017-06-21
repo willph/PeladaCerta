@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.commit();
 
                             Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
-                            intent.putExtra("loggerUser", user);
+                            intent.putExtra("loggedUser", user);
                             startActivity(intent);
                             finish();
 
@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
 //                        Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
-//                        intent.putExtra("loggerUser", user);
+//                        intent.putExtra("loggedUser", user);
 //                        startActivity(intent);
 
 

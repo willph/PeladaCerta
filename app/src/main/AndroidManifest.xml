@@ -26,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogadoActivity" />
         <activity android:name=".ListaPeladaCerta" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".PeladaDetalheActivity" />

@@ -43,7 +43,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mGoogleMap;
     SupportMapFragment mapa;
     private List<PeladaModel> listaPeladas;
-    private User loggerUser;
+    private User loggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +53,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        setSupportActionBar(toolbar);
 
 
-        if (getIntent().getSerializableExtra("loggerUser") != null) {
-            loggerUser = (User) getIntent().getSerializableExtra("loggerUser");
+        if (getIntent().getSerializableExtra("loggedUser") != null) {
+            loggedUser = (User) getIntent().getSerializableExtra("loggedUser");
         } else {
-            loggerUser = new User();
+            loggedUser = new User();
         }
 
         SharedPreferences settings = getSharedPreferences("usuario_logado", 0);
 //        settings.getString("usuario_id", "");
         Log.i("shared: ", settings.getString("usuario_id", ""));
-        loggerUser.setId(Integer.valueOf(settings.getString("usuario_id", "")));
+        loggedUser.setId(Integer.valueOf(settings.getString("usuario_id", "")));
 
 
         mapa = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment));
@@ -136,7 +136,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     public void getLista() {
-        Network network = new Network(this, "");
+        Network network = new Network(this, "Aguarde...");
         network.listarPeladas();
         network.setListener(new IASyncFetchListener() {
             @Override
@@ -147,8 +147,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onComplete(JSONArray jsonArray) {
                 listaPeladas = new ArrayList<>();
-                SoccerTeam hostTeam = new SoccerTeam();
-                SoccerTeam guestTeam = new SoccerTeam();
+                SoccerTeam hostTeam;
+                SoccerTeam guestTeam;
                 JSONObject hostJSON;
                 JSONObject guestJSON;
                 JSONArray jsonArrayUsers;
@@ -166,6 +166,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 item.getDouble("lat"), item.getDouble("lng"), "http://cyberdados.com/wp-content/images/2014/07/2iitkhx.jpg");
 
                         hostJSON = item.getJSONObject("host");
+                        hostTeam = new SoccerTeam();
+                        guestTeam = new SoccerTeam();
                         hostTeam.setId(hostJSON.getInt("id"));
                         hostTeam.setTeamName(hostJSON.getString("team_name"));
                         listaUsersHost = new ArrayList<>();
@@ -245,10 +247,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         int i = 0;
         for (PeladaModel item : lista) {
 
-            mGoogleMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(item.getLat(), item.getLng()))
-                    .snippet(String.valueOf(i))
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ball_icon)));
+            if (item.getHostTeam().hasUserById(loggedUser) || item.getGuestTeam().hasUserById(loggedUser)){
+                mGoogleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(item.getLat(), item.getLng()))
+                        .snippet(String.valueOf(i))
+                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ball_001)));
+            } else {
+                mGoogleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(item.getLat(), item.getLng()))
+                        .snippet(String.valueOf(i))
+                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ball_002)));
+            }
             i++;
         }
         eventPin();
@@ -261,7 +270,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public boolean onMarkerClick(Marker marker) {
                 Intent intent = new Intent(MapsActivity.this, PeladaDetalheActivity.class);
                 intent.putExtra("peladaModel", listaPeladas.get(Integer.valueOf(marker.getSnippet())));
-                intent.putExtra("loggerUser", loggerUser);
+                intent.putExtra("loggedUser", loggedUser);
                 startActivity(intent);
                 return true;
             }

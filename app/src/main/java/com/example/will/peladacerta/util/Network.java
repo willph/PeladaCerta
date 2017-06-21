@@ -91,7 +91,7 @@ public class Network {
                         if (throwable.getMessage().contains("Unable to resolve host")) {//
                             alert.setTitle("Sem internet!");
                         } else {
-                            alert.setTitle("Erro ao autenticar Fiscal!");
+                            alert.setTitle("Erro ao autenticar Usuario.");
                         }
                     }
                 } catch (NullPointerException e) {
@@ -129,7 +129,7 @@ public class Network {
                 } else if (e.getMessage().contains("Unable to resolve host")) {
                     alert.setTitle("Sem internet!");
                 } else {
-                    alert.setTitle("Erro ao autenticar Fiscal!");
+                    alert.setTitle("Erro ao autenticar Usuario.");
                 }
 
                 alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
@@ -270,7 +270,7 @@ public class Network {
                         if (throwable.getMessage().contains("Unable to resolve host")) {//
                             alert.setTitle("Sem internet!");
                         } else {
-                            alert.setTitle("Erro ao autenticar Fiscal!");
+                            alert.setTitle("Erro ao autenticar Usuario.");
                         }
                     }
                 } catch (NullPointerException e) {
@@ -308,7 +308,7 @@ public class Network {
                 } else if (e.getMessage().contains("Unable to resolve host")) {
                     alert.setTitle("Sem internet!");
                 } else {
-                    alert.setTitle("Erro ao autenticar Fiscal!");
+                    alert.setTitle("Erro ao autenticar Usuario.");
                 }
 
                 alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
@@ -362,7 +362,7 @@ public class Network {
                         if (throwable.getMessage().contains("Unable to resolve host")) {//
                             alert.setTitle("Sem internet!");
                         } else {
-                            alert.setTitle("Erro ao autenticar Fiscal!");
+                            alert.setTitle("Erro ao autenticar Usuario.");
                         }
                     }
                 } catch (NullPointerException e) {
@@ -400,7 +400,7 @@ public class Network {
                 } else if (e.getMessage().contains("Unable to resolve host")) {
                     alert.setTitle("Sem internet!");
                 } else {
-                    alert.setTitle("Erro ao autenticar Fiscal!");
+                    alert.setTitle("Erro ao autenticar Usuario.");
                 }
 
                 alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {
@@ -458,7 +458,7 @@ public class Network {
                         if (throwable.getMessage().contains("Unable to resolve host")) {//
                             alert.setTitle("Sem internet!");
                         } else {
-                            alert.setTitle("Erro ao autenticar Fiscal!");
+                            alert.setTitle("Erro ao autenticar Usuario.");
                         }
                     }
                 } catch (NullPointerException e) {
@@ -516,7 +516,7 @@ public class Network {
                 } else if (e.getMessage().contains("Unable to resolve host")) {
                     alert.setTitle("Sem internet!");
                 } else {
-                    alert.setTitle("Erro ao autenticar Fiscal!");
+                    alert.setTitle("Erro ao autenticar Usuario.");
                 }
 
                 alert.setPositiveButton("OK!", new DialogInterface.OnClickListener() {

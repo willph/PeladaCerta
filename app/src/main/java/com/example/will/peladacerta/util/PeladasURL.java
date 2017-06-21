@@ -5,8 +5,8 @@ package com.example.will.peladacerta.util;
  */
 
 public class PeladasURL {
-    private static final String ADDRESS = "https://pelada-certa.herokuapp.com";
-//    private static final String ADDRESS = "http://172.16.211.14:3000";
+//    private static final String ADDRESS = "https://pelada-certa.herokuapp.com";
+    private static final String ADDRESS = "http://172.16.211.14:3000";
 
     private static final String QUERY_LOGIN = PeladasURL.ADDRESS + "/users/sign_in.json";
 

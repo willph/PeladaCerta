@@ -37,15 +37,15 @@ public class PeladaDetalheActivity extends AppCompatActivity {
     private TextView txtView_horario;
     private ImageButton imageButton_time_1;
     private ImageButton imageButton_time_2;
-    private User loggerUser;
+    private User loggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        loggerUser = new User();
-        if (getIntent().getSerializableExtra("loggerUser") != null){
-            loggerUser = (User) getIntent().getSerializableExtra("loggerUser");
+        loggedUser = new User();
+        if (getIntent().getSerializableExtra("loggedUser") != null){
+            loggedUser = (User) getIntent().getSerializableExtra("loggedUser");
         }
 
 
@@ -80,7 +80,7 @@ public class PeladaDetalheActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Network network = new Network(PeladaDetalheActivity.this, "");
-                    network.joinTeam(loggerUser, peladaModel.getHostTeam());
+                    network.joinTeam(loggedUser, peladaModel.getHostTeam());
                     network.setListener(new IASyncFetchListener() {
                         @Override
                         public void onComplete(JSONObject item) {
@@ -114,7 +114,7 @@ public class PeladaDetalheActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Network network = new Network(PeladaDetalheActivity.this, "Aguarde...");
-                    network.joinTeam(loggerUser, peladaModel.getGuestTeam());
+                    network.joinTeam(loggedUser, peladaModel.getGuestTeam());
                     network.setListener(new IASyncFetchListener() {
                         @Override
                         public void onComplete(JSONObject item) {
