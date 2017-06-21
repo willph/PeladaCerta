@@ -58,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Network network = new Network(LoginActivity.this, "Carregando");
-                Intent intent = new Intent(LoginActivity.this, ListaPeladaCerta.class);
                 network.login(txtEmail.getText().toString(), txtSenha.getText().toString());
                 network.setListener(new IASyncFetchListener() {
                     @Override
